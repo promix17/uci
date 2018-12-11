@@ -338,11 +338,9 @@ func (eng *Engine) Close() {
 	if err != nil {
 		log.Println("failed to stop engine:", err)
 	}
-	eng.stdin.Flush()
 	err = eng.cmd.Process.Kill()
 	if err != nil {
 		log.Println("failed to kill engine:", err)
 		return;
 	}
-	eng.cmd.Wait()
 }
