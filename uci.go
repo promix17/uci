@@ -342,6 +342,7 @@ func (eng *Engine) Close() {
 	err = eng.cmd.Process.Kill()
 	if err != nil {
 		log.Println("failed to kill engine:", err)
+		return;
 	}
 	eng.cmd.Wait()
 }
